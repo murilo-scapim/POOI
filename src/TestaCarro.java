@@ -24,5 +24,6 @@ public class TestaCarro {
         System.out.println("Tipo do combustível: " + carro.tipoCombustivel);
         System.out.println("Ano de fabricação: " + carro.anoFabricacao);
         System.out.println("Valor de mercado: R$" + carro.valorMercado);
+        System.out.println("Proprietário: " + carro.proprietario.nome);
     }
 }
