@@ -11,7 +11,7 @@ public class Conta {
         if (valor > 0){
             this.saldo += valor;
             System.out.println("Depósito de R$" + valor
-                    + "realizado com sucesso!");
+                    + " realizado com sucesso!");
         }
         else {
             System.out.println("Depósito inválido!");
@@ -34,10 +34,11 @@ public class Conta {
     }
 
     void imprimirExtrato(){
-        System.out.println("EXTRATO DA CONTA");
+        System.out.println(" ----- EXTRATO DA CONTA -----");
         System.out.println("Número: " + numero);
+        System.out.println("Data de abertura: " + dataAbertura);
         System.out.println("Nome do cliente: " +
                 titular.nome + " " + titular.sobrenome);
-        System.out.println("Saldo: R$ " + saldo);
+        System.out.println("Saldo: R$" + saldo);
     }
 }
