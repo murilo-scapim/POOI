@@ -19,10 +19,10 @@ public class Conta {
     }
 
     void sacar(double valor) {
-        double saldoDisponivel = saldo + limite;
+        double saldoDisponivel = this.saldo + this.limite;
 
         if (valor <= saldoDisponivel && valor > 0) {
-            saldo -= valor;
+            this.saldo -= valor;
             System.out.println("Saque de R$" + valor +
                     " realizado com sucesso!");
         } else if (valor > saldoDisponivel) {
