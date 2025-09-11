@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Evento {
@@ -20,22 +21,37 @@ public class Evento {
     }
 
     public void exibirEvento() {
+        DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm");
+
         System.out.println("---- Dados do evento ----");
         System.out.println("Descrição: " + descricao);
         System.out.println("Tipo: " + tipo);
         System.out.println("Local: " + local);
-        System.out.println("Data: " + data);
-        System.out.println("Hora de início: " + horaInicio);
+        System.out.println("Data: " + data.format(formatoData));
+        System.out.println("Hora de início: " + horaInicio.format(formatoHora));
         System.out.println("Participantes:");
 
         if (participantes.isEmpty()) {
-            System.out.println("Não existe partipantes registrados!");
+            System.out.println("Não existe participantes registrados!");
         } else {
             for (Participante p : participantes) {
                 System.out.println("Nome: " + p.getNome());
                 System.out.println("E-mail: " + p.getEmail());
                 System.out.println("Instituição: " + p.getInstituicao());
+                System.out.println();
             }
+        }
+    }
+
+    public void removerParticipantePorEmail(String email) {
+        boolean removido = participantes.removeIf(p -> p.getEmail()
+                .equalsIgnoreCase(email));
+
+        if (removido) {
+            System.out.println("Participante removido com sucesso!");
+        } else {
+            System.out.println("Participante não removido!");
         }
     }
 
