@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Pedido {
@@ -9,10 +10,10 @@ public class Pedido {
     private ArrayList<ItemPedido> itens;
 
     public Pedido() {
+        this.itens = new ArrayList<>();
         this.codigo = itens.size() + 1;
         this.data = LocalDate.now();
         this.hora = LocalTime.now();
-        this.itens = new ArrayList<>();
     }
 
     public void adicionarItem(ItemPedido item) {
@@ -28,14 +29,18 @@ public class Pedido {
     }
 
     public void exibirPedido() {
-        System.out.println("Dados do pedido: ");
-        System.out.println("Código: " + this.codigo);
-        System.out.println("Data: " + this.data);
-        System.out.println("Hora: " + this.hora);
-        System.out.println("Itens do pedido: ");
+        DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm");
 
+        System.out.println("\n---- DADOS DO PEDIDO ----\n");
+        System.out.println("Código: " + codigo);
+        System.out.println("Data: " + data.format(formatoData));
+        System.out.println("Hora: " + hora.format(formatoHora));
+        System.out.println("Valor total R$" + calcularValorTotal());
+
+        System.out.println("\nITEMS DO PEDIDO");
         for (ItemPedido i : itens) {
-            System.out.println("Código: " + i.getCodigo());
+            System.out.println("\nCódigo: " + i.getCodigo());
             System.out.println("Descrição: " + i.getDescricao());
             System.out.println("Valor unitário R$" + i.getValorUnitario());
             System.out.println("Quantidade: " + i.getQuantidade());
@@ -47,9 +52,9 @@ public class Pedido {
                 .equalsIgnoreCase(descricao));
 
         if (removido) {
-            System.out.println("Item removido com sucesso!");
+            System.out.println("\nItem removido com sucesso!");
         } else {
-            System.out.println("Item não removido!");
+            System.out.println("\nItem não removido!");
         }
     }
 
