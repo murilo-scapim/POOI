@@ -42,6 +42,17 @@ public class Pedido {
         }
     }
 
+    public void removerItemPorDescricao(String descricao) {
+        boolean removido = itens.removeIf(i -> i.getDescricao()
+                .equalsIgnoreCase(descricao));
+
+        if (removido) {
+            System.out.println("Item removido com sucesso!");
+        } else {
+            System.out.println("Item não removido!");
+        }
+    }
+
     public int getCodigo() {
         return codigo;
     }
