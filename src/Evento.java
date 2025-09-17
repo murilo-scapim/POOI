@@ -39,7 +39,7 @@ public class Evento {
                 System.out.println("Nome: " + p.getNome());
                 System.out.println("E-mail: " + p.getEmail());
                 System.out.println("Instituição: " + p.getInstituicao());
-                System.out.println();
+                System.out.println("-----------------------");
             }
         }
     }
