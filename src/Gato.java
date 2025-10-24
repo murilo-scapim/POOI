@@ -1,4 +1,4 @@
-public class Gato {
+public class Gato extends Animal {
     String nome;
     int idade;
     String raca;
@@ -6,15 +6,20 @@ public class Gato {
     char tamanho;
     String cor;
 
-    void miar(){
-        System.out.println("Miau miau...");
+    public Gato(String nome, int idade) {
+        super(nome, idade);
     }
 
-    void comer(String comida){
+    void comer(String comida) {
         System.out.println("O gato " + nome + " está comendo " + comida);
     }
 
-    String dormir(){
+    String dormir() {
         return "O gato está dormindo zzzzz";
+    }
+
+    @Override
+    public void emitirSom() {
+        System.out.println("Miau miau!");
     }
 }
