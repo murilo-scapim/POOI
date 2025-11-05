@@ -1,8 +1,8 @@
 public class TestaGato {
     public static void main(String[] args) {
-        Gato gato = new Gato();
-        gato.nome = "Cheddar";
-        gato.idade = 5;
+        Gato gato = new Gato("Cheddar", 5);
+        // gato.nome = "Cheddar";
+        // gato.idade = 5;
         gato.raca = "Persa";
         gato.genero = 'M';
         gato.tamanho = 'M';
@@ -15,7 +15,6 @@ public class TestaGato {
         System.out.println(gato.tamanho);
         System.out.println(gato.cor);
 
-        gato.miar();
         gato.comer("Ração");
         System.out.println(gato.dormir());
     }
