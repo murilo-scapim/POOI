@@ -2,12 +2,13 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pedido {
     private int codigo;
     private LocalDate data;
     private LocalTime hora;
-    private ArrayList<ItemPedido> itens;
+    private List<ItemPedido> itens;
 
     public Pedido() {
         this.itens = new ArrayList<>();
@@ -82,7 +83,7 @@ public class Pedido {
         this.hora = hora;
     }
 
-    public ArrayList<ItemPedido> getItens() {
+    public List<ItemPedido> getItens() {
         return itens;
     }
 }
