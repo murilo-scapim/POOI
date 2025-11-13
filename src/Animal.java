@@ -7,5 +7,6 @@ public abstract class Animal {
         this.idade = idade;
     }
 
+    // método abstrato
     public abstract void emitirSom();
 }
